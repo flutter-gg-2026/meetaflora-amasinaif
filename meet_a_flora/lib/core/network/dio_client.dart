@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'api_endpoints.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 @lazySingleton
 class DioClient {
@@ -9,12 +10,13 @@ class DioClient {
   DioClient() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: ApiEndpoints.baseUrl,
+        baseUrl: ApiEndpoints.geminiBaseUrl,
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'x-gemini-key': dotenv.env['gemini_key'],
         },
       ),
     );
@@ -38,19 +40,4 @@ class DioClient {
 
   Dio get dio => _dio;
 
-  Future<Response> get(String path, {Map<String, dynamic>? queryParameters}) {
-    return _dio.get(path, queryParameters: queryParameters);
-  }
-
-  Future<Response> post(String path, {dynamic data}) {
-    return _dio.post(path, data: data);
-  }
-
-  Future<Response> put(String path, {dynamic data}) {
-    return _dio.put(path, data: data);
-  }
-
-  Future<Response> delete(String path) {
-    return _dio.delete(path);
-  }
 }

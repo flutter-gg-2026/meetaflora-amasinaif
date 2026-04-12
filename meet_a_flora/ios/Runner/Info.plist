@@ -6,6 +6,8 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to take profile photos.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Meet A Flora</string>
 	<key>CFBundleExecutable</key>

@@ -1,19 +1,7 @@
-// api_endpoints.dart
 class ApiEndpoints {
   ApiEndpoints._();
 
-  static const String baseUrl = 'https://api.example.com';
-
-  // Auth
-  static const String login = '/auth/login';
-  static const String register = '/auth/register';
-  static const String logout = '/auth/logout';
-  static const String refreshToken = '/auth/refresh';
-
-  // User
-  static const String profile = '/user/profile';
-
-  // Common
-  static String userById(String id) => '/users/$id';
+  static const String geminiBaseUrl = 'https://generativelanguage.googleapis.com';
+  static const String geminiVersion = '/v1';
+  static const String geminiModel = '/models/gemini-3.1-flash:generateContent';
 }
-
